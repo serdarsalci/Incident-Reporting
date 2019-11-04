@@ -1,0 +1,621 @@
+﻿
+@{
+    ViewData["Title"] = "CreateReport";
+}
+
+<p class="font-weight-bold">W.I. #1 <br />Create Incident Report</p>
+
+
+<div class="container border-dark">
+    <div class="custom-control custom-checkbox float-right">
+        <div>
+            <input type="checkbox" class="custom-control-input" id="cBxNearMiss">
+            <label class="custom-control-label" for="cBxNearMiss">Near-Miss</label>
+        </div>
+        <div>
+            <input type="checkbox" class="custom-control-input" id="cBxInjuryReported">
+            <label class="custom-control-label" for="cBxInjuryReported">Injury Reported</label>
+        </div>
+        <div>
+            <input type="checkbox" class="custom-control-input" id="cBxPropertyDamage">
+            <label class="custom-control-label" for="cBxPropertyDamage">Property Damage Only</label>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <div class="accordion" id="sectionsAccordion">
+        <!-- SECTION 1 Repeorting Details-->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        SECTION 1 - Reporting Details
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show mb-2 ml-2" aria-labelledby="headingOne" data-parent="#sectionsAccordion">
+                <br />
+                <form class="form-inline">
+                    <div class="form-row form-group col-md-4">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control ml-2" id="lastName">
+                    </div>
+                    <div class="form-row form-group col-md-4">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control ml-2" id="firstName">
+                    </div>
+                    <div class="form-row form-group col-md-4">
+                        <label for="position">Position:</label>
+                        <input type="text" class="form-control ml-2" id="position">
+                    </div>
+                </form>
+
+                <form class="form-inline mt-3">
+                    <div class="form-row form-group col-md-4">
+                        <label for="datOfIncident">Date of Incident:</label>
+                        <input type="date" class="form-control ml-2" id="dateOfIncident">
+                    </div>
+                    <div class="form-row form-group col-md-4">
+                        <label for="firstName">Time:</label>
+                        <input type="text" class="form-control ml-2" id="timeOfIncident">
+                    </div>
+                    <div class="form-row form-group col-md-4">
+                        <label for="position">Department:</label>
+                        <input type="text" class="form-control ml-2" id="department">
+                    </div>
+                </form>
+
+                <form class="form-inline mt-3">
+                    <div class="form-row form-group col-md-4">
+                        <label for="exactLocation">Exact Location:</label>
+                        <input type="text" class="form-control ml-2" id="exactLocation">
+                    </div>
+                    <div class="form-row form-group col-md-4">
+                        <label for="firstName">Last hour worked:</label>
+                        <input type="time" class="form-control ml-2" id="lastHourWorked">
+                    </div>
+                </form>
+                <form class="form-inline mt-3">
+                    <div class="form-row form-group col-md-12">
+                        <label for="exactLocation">List any potential witnesses in the area at the time of this incident:</label>
+                        <textarea class="form-control ml-2" id="potentialWitnesses"></textarea>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                    <div class="form-row form-group col-md-6">
+                        <label for="exactLocation">Who was incident reported to:</label>
+                        <input type="text" class="form-control ml-2" id="incidentReportedTo">
+                    </div>
+                    <div class="form-row form-group col-md-6 mt-3">
+                        <label for="dateReported">Date Reported:</label>
+                        <input type="date" class="form-control ml-2" id="dateReported">
+                    </div>
+                </form>
+                <br />
+            </div>
+
+        </div>
+
+        <!-- SECTION 2-->
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        SECTON 2 - Injury Details
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#sectionsAccordion">
+                <br />
+                <form>
+                    <div class="row ml-1">
+
+                        <div class="col-md-5 mt-2 ml-2">
+                            <div class="form-group form-inline">
+                                <label for="lengthOfTimeInPosition">Length of time in position:</label>
+                                <input type="text" class="form-control ml-1" id="lengthOfTimeInPosition">
+                            </div>
+
+                            <br />
+                            <br />
+                            @* Sec 2 Was the Incident:  *@
+                            <div class="custom-radio radio-inline">
+                                <label class="font-weight-bold">Was the incident:</label>
+                                <div>
+                                    <input type="radio" name="WasTheIncident" id="rBtnSuddenSpecific" value="rBtnSuddenSpecific">
+                                    <label for="rBtnSuddenSpecific" class="">Sudden Specific Event/Occurance</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="WasTheIncident" id="rBtnGradually" value="rBtnGradually">
+                                    <label class="">Gradually Occuring Over Time</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="WasTheIncident" id="rBtnOccupational" value="rBtnOccupational">
+                                    <label class="">Occupational Disease</label>
+                                </div>
+                                <div class=" radio-inline">
+                                    <input type="radio" name="WasTheIncident" id="rBtnFatality" value="rBtnFatality">
+                                    <label class="">Fatality</label>
+                                </div>
+                            </div>
+                            <br />
+                            @* Dominant hand *@
+
+                            <label class="font-weight-bold">Dominant hand? </label>
+                            <input type="radio" class="ml-3" id="LeftHand" name="dominantHand" value="rBtnLeftHand" />
+                            <label class="radio-inline ml-1">Left</label>
+                            <input type="radio" class="ml-3" id="RightHand" name="dominantHand" value="rBtnRightHand" />
+                            <label class="ml-1">Right</label>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
+
+                            <div class="form-row">
+                                <label>Fully trained in this position?</label>
+                                <label class="radio-inline ml-2">
+                                    <input type="radio" name="survey" id="fullyTrainedYes" value="Yes">
+                                    Yes
+                                </label>
+                                <label class="radio-inline ml-2">
+                                    <input type="radio" name="survey" id="fullyTrainedNo" value="No">
+                                    No
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label>Wearing PPE?</label>
+                                <label class="radio-inline ml-2">
+                                    <input class="ml-2" type="radio" name="survey1" id="wearingPPEyes" value="Yes">
+                                    Yes
+                                </label>
+                                <label class="radio-inline ml-2">
+                                    <input class="ml-2" type="radio" name="survey1" id="wearingPPEno" value="No">
+                                    No
+                                </label>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label for="SpecifyPPE">Specify PPE?:</label>
+                                <input type="text" class="form-control ml-2" id="specifyPPE">
+                            </div>
+                            <br />
+
+                            @* Type Of Incident *@
+                            <label class="font-weight-bold ml-0">Type of Incident/Illness:</label><label>(Select all that aply)</label>
+                            <div class="custom-control custom-checkbox">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxCut">
+                                            <label class="custom-control-label" for="cBxCut">Cut</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxBurn">
+                                            <label class="custom-control-label" for="cBxBurn">Burn</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxBumpBruise">
+                                            <label class="custom-control-label" for="cBxBumpBruise">Bump / Bruise</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxSlipFall">
+                                            <label class="custom-control-label" for="cBxSlipFall">Slip / Fall</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRepettitiveStrain">
+                                            <label class="custom-control-label" for="cBxRepettitiveStrain">Repettitive Strain</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxBackInjury">
+                                            <label class="custom-control-label" for="cBxBackInjury">Back Injury</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxOverexertion">
+                                            <label class="custom-control-label" for="cBxOverexertion">Overexertion</label>
+                                        </div>
+                                        <div class="form-group form-inline">
+
+                                            <div class="form-group form-inline">
+                                                <input type="checkbox" class="custom-control-input" id="cBxOther">
+                                                <label class="custom-control-label" for="cBxOther">Other</label>
+                                                <input type="text" class="form-control ml-2 " id="TypeOfAccidentOther" />
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <hr class="mx-4" />
+                    @* Area of Injury *@
+
+                    <label class=" col-md-12 text-center font-weight-bolder">Area of Injury (Body Part-Please check all that apply)</label>
+
+                    <div class="form-group row">
+                        <div class="col-md-4 ml-3 row">
+
+                            <div class="col-5">
+                                <div class="custom-control custom-checkbox">
+                                    <br />
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxHead">
+                                        <label class="custom-control-label" for="cBxHead">Head</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxFace">
+                                        <label class="custom-control-label" for="cBxFace">Face</label>
+
+                                    </div>
+
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxEye">
+                                        <label class="custom-control-label" for="cBxEye">Eye</label>
+
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxTheeth">
+                                        <label class="custom-control-label" for="cBxTheeth">Theeth</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxNeck">
+                                        <label class="custom-control-label" for="cBxNeck">Neck</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="custom-control custom-checkbox">
+                                    <br />
+
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxPelvis">
+                                        <label class="custom-control-label" for="cBxPelvis">Pelvis</label>
+
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxUpperBack">
+                                        <label class="custom-control-label" for="cBxUpperBack">UpperBack</label>
+
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxLowerBack">
+                                        <label class="custom-control-label" for="cBxLowerBack">LowerBack</label>
+
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="custom-control-input" id="cBxChest">
+                                        <label class="custom-control-label" for="cBxChest">Chest</label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="col-7 ">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="font-weight-bolder">Left</label>
+                                    <div class="ml-4">
+
+                                        <div>
+
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftShoulder">
+                                            <label class="custom-control-label" for="cBxLeftShoulder">Shoulder</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftElbow">
+                                            <label class="custom-control-label" for="cBxLeftElbow">Elbow</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftUpperArm">
+                                            <label class="custom-control-label" for="cBxLeftUpperArm">Upper Arm</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftForeArm">
+                                            <label class="custom-control-label" for="cBxForeArm">Forearm</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftHand">
+                                            <label class="custom-control-label" for="cBxLeftHand">Hand</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftWrist">
+                                            <label class="custom-control-label" for="cBxLeftWrist">Wrist</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftFinder">
+                                            <label class="custom-control-label" for="cBxLeftFinder">Finger</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftHip">
+                                            <label class="custom-control-label" for="cBxLeftHip">Hip</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-2">
+                                    <label class="font-weight-bolder">Right</label>
+                                    <div class="ml-4">
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightShoulder">
+                                            <label class="custom-control-label" for="cBxRightShoulder"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightElbow">
+                                            <label class="custom-control-label" for="cBxRightElbow"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightUpperArm">
+                                            <label class="custom-control-label" for="cBxRightUpperArm"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightForeArm">
+                                            <label class="custom-control-label" for="cBxRightForeArm"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightHand">
+                                            <label class="custom-control-label" for="cBxRightHand"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightWrist">
+                                            <label class="custom-control-label" for="cBxRightWrist"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightFinder">
+                                            <label class="custom-control-label" for="cBxRightFinder"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightHip">
+                                            <label class="custom-control-label" for="cBxRightHip"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-3 ml-3">
+                                    <label class="font-weight-bolder">Left</label>
+                                    <div class="ml-4">
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftButtocks">
+                                            <label class="custom-control-label" for="cBxLeftButtocks">Buttocks</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftGroin">
+                                            <label class="custom-control-label" for="cBxLeftGroin">Groin</label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftThigh">
+                                            <label class="custom-control-label" for="cBxLeftThigh">Thigh</label>
+                                        </div>
+
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftKnee">
+                                            <label class="custom-control-label" for="cBxLeftKnee">Knee</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftLowerLeg">
+                                            <label class="custom-control-label" for="cBxLeftLowerLeg">Lower Leg</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftAnkle">
+                                            <label class="custom-control-label" for="cBxLeftAnkle">Ankle</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftFoot">
+                                            <label class="custom-control-label" for="cBxLeftFoot">Foot</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxLeftToes">
+                                            <label class="custom-control-label" for="cBxLeftFinder">Toes(s)</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="font-weight-bolder">Right</label>
+
+                                    <div class="ml-4">
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightButtock">
+                                            <label class="custom-control-label" for="cBxRightButtock"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightGroin">
+                                            <label class="custom-control-label" for="cBxRightGroin"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightThigh">
+                                            <label class="custom-control-label" for="cBxRightThigh"></label>
+                                        </div>
+
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightKnee">
+                                            <label class="custom-control-label" for="cBxRightKnee"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightLowerLeg">
+                                            <label class="custom-control-label" for="cBxRightLowerLeg"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightAnkle">
+                                            <label class="custom-control-label" for="cBxRightAnkle"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightFoot">
+                                            <label class="custom-control-label" for="cBxRightFoot"></label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="custom-control-input" id="cBxRightToes">
+                                            <label class="custom-control-label" for="cBxRightToes"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="mx-4" />
+
+                    <div class="row ml-2">
+
+                        <div class="col-4">
+                            <div class="form-inline">
+                                <input type="radio" name="medicalAttention" id="noMedAttentionRequired" />
+                                <label class="radio-inline font-weight-bolder ml-2">No medical attention required</label>
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <div class="form-inline">
+                                <input type="radio" name="medicalAttention" id="firstAidOnsite" />
+                                <label class="radio-inline font-weight-bolder ml-2">First aid given onsite</label>
+                            </div>
+
+                        </div>
+                        <div class="col-4">
+                            <div class="form-inline">
+                                <input type="radio" name="medicalAttention" id="outsideMedAttention" />
+                                <label class="radio-inline font-weight-bolder ml-2">Outside medical attention sought</label>
+                            </div>
+
+                            <div class="form-row form-group form-inline ml-2">
+                                <label class="font-weight-bolder" for="dateOfmedAttention">When:</label>
+                                <input type="date" class="form-control ml-2" id="dateOfmedAttention">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-inline ml-2">
+                        <label class="font-weight-bolder">Was worker sent out for medical attention(i.e. Urgent care)?</label>
+                        <input class="ml-3" type="radio" name="sentOutMedAttention" id="sentOutforMedicalAttn" />
+                        <label class="ml-2">Yes</label>
+                        <input class="ml-3" type="radio" name="sentOutMedAttention" id="id=" notSentOutforMedicalAttn"" />
+                        <label class="ml-2">No</label>
+                    </div>
+                    <br />
+
+                    <div class="form-row form-group form-inline ml-2">
+                        <label class="font-weight-bolder" for="dateOfmedAttention">When did you learn that the worker recieved outside Health Care?</label>
+                        <input type="date" class="form-control ml-2" id="dateLearnedOutsideHC">
+                    </div>
+
+                    <div class="form-row form-group form-inline ml-2">
+                        <label class="font-weight-bolder">Name of Health Care Provider (If known):</label>
+                        <input class="form-group form-control" type="text" id="healthCareProvider" />
+                    </div>
+                    <div class="form-inline ml-2 form-group mb-0 pb-0">
+                        <label class="font-weight-bolder">Did worker have any lost time(not paid) after the day of injury?</label>
+                        <input class="ml-3" type="radio" name="haveLostTime" id="haveLostTime" />
+                        <label class="ml-2">Yes</label>
+                        <input class="ml-3" type="radio" name="haveLostTime" id="notHaveLostTime" />
+                        <label class="ml-2">No</label>
+
+                    </div>
+                    <div class="form-inline mt-0 ml-2 mb-2">
+                        <label>If yes, When?</label>
+                        <input type="date" class="form-control" />
+                    </div>
+                    <div class="">
+                        <label class="font-weight-bolder ml-2">Worker provided with FAF?</label>
+                        <input type="radio" name="providedFAF" id="providedFAF" />
+                        <label>Yes</label>
+                        <input type="radio" name="providedFAF" id="notProvidedFAF" />
+                        <label>No</label>
+
+                        <label class="font-weight-bolder ml-4">Provided FAF returned?</label>
+                        <input type="radio" name="FAFreturned" id="fafReturned" />
+                        <label>Yes</label>
+                        <input type="radio" name="FAFreturned" id="notfafReturned" />
+                        <label>No</label>
+                    </div>
+                    <div class="ml-2">
+
+                            <label class="font-weight-bolder">Modified Duties:</label>
+                            <input class="ml-2" type="radio" name="modifiedDutyOffered" id="modDutyNoRestriction" />
+                            <label>No Restrictions</label>
+
+                            <input class="ml-2" type="radio" name="modifiedDutyOffered" id="modDutyAccepted" />
+                            <label>Accepted</label>
+
+                            <input class="ml-2" type="radio" name="modifiedDutyOffered" id="modDutyDeclined" />
+                            <label>Declined</label>
+                            <label>Why?</label>
+                            <input type="text" id="WhyModiedDutyDeclined" />
+                      
+                    </div>
+
+              
+
+
+
+
+
+
+
+                </form>
+
+
+
+
+            </div>
+
+
+        </div>
+
+        @* ---SECTION 3--- *@
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Collapsible Group Item #3
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#sectionsAccordion">
+                <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                    accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
